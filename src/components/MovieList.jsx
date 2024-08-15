@@ -4,17 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const MovieList = () => {
     const styles = {
-        input: {
-            padding: "12px",
-            borderRadius: "5px",
-            border: "1px solid #ccc",
-            fontSize: "16px",
-            width: "100%",
-            marginRight: "10px",
-            backgroundColor: "#fff",
-            color: "#000",
-        },
-        button: {
+      button: {
             padding: "12px 20px",
             borderRadius: "5px",
             backgroundColor: "#007BFF",
@@ -36,12 +26,6 @@ const MovieList = () => {
             width: "100%",
             padding: "5px",
             borderRadius: "8px",
-        },
-        form: {
-            display: "flex",
-            alignItems: "center",
-            width: "100%",
-            marginBottom: "20px",
         },
         container: {
             width: "100%",
@@ -139,8 +123,8 @@ const MovieList = () => {
         <div style={styles.container}>
             <header style={styles.header}>
             <h4 style={{color: "#fff"}}>Search Movie</h4>
-                <div style={styles.form}>
-                <input
+                <div className="form">
+                <input className="input"
                     type="text"
                     placeholder="Search for movies..."
                     value={searchTerm}
@@ -150,29 +134,29 @@ const MovieList = () => {
                 <button onClick={handleSortByRating} style={styles.button}>Sort by Rating</button>
                 </div>
                 <h4 style={{color: "#fff"}}>Add New Movie</h4>
-                <form style={styles.form} onSubmit={handleAddMovie}>
-                    <input
+                <form className="form" onSubmit={handleAddMovie}>
+                    <input className="input"
                         type="text"
                         placeholder="Add movie title..."
                         value={newMovie.title}
                         onChange={(e) => setNewMovie({ ...newMovie, title: e.target.value })}
                         style={styles.input}
                     />
-                    <input
+                    <input className="input"
                         type="text"
                         placeholder="Poster URL"
                         value={newMovie.poster_path}
                         onChange={(e) => setNewMovie({ ...newMovie, poster_path: e.target.value })}
                         style={styles.input}
                     />
-                    <input
+                    <input className="input"
                         type="text"
                         placeholder="Description"
                         value={newMovie.overview}
                         onChange={(e) => setNewMovie({ ...newMovie, overview: e.target.value })}
                         style={styles.input}
                     />
-                    <input
+                    <input className="input"
                         type="text"
                         placeholder="Rating"
                         value={newMovie.rating}

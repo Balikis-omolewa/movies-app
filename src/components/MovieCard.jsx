@@ -1,8 +1,9 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import PropTypes from "prop-types";
 
-const Moviecard = ({ title, img, description, rating }) => {
+const MovieCard = ({ title, img, description, rating, func }) => {
     const styles = {
         image: {
             width: "100%",
@@ -42,7 +43,7 @@ const Moviecard = ({ title, img, description, rating }) => {
     };
 
     return (
-        <Card style={styles.card}>
+        <Card style={styles.card} onClick={func}>
             <Card.Img 
                 variant="top" 
                 src={img || "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_QL75_UX380_CR0,1,380,562_.jpg"} 
@@ -51,14 +52,22 @@ const Moviecard = ({ title, img, description, rating }) => {
             />
             <Card.Body style={styles.cardBody}>
                 <Card.Title>{title || "Movie Title"}</Card.Title>
-                <Card.Text style={{ fontSize: "12px"}}>{description}</Card.Text>
-                <Card.Text>Rating: {rating || "250"}</Card.Text>
+                <Card.Text style={{ fontSize: "12px"}}>{description.slice(0, 35)}...</Card.Text>
+                <Card.Text>Rating: {rating || "198"}</Card.Text>
                 <div style={styles.buttonContainer}>
                     <Button style={styles.btn}>Watch Now!</Button>
                 </div>
             </Card.Body>
         </Card>
-    );
-};
+    )
+}
 
-export default Moviecard;
+MovieCard.propTypes = {
+    title: PropTypes.any,
+    poster_path: PropTypes.string,
+    description: PropTypes.string,
+    rating: PropTypes.any,
+    func: PropTypes.func
+}
+
+export default MovieCard;
